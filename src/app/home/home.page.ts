@@ -149,6 +149,9 @@ export class HomePage {
       this.primeiro_elemento = this.resultado;
     }  
   }
+  quadrado(){
+
+  }  
   fracionar(){
 
   }
