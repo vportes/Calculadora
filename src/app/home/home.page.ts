@@ -26,6 +26,7 @@ export class HomePage {
       } else {
         this.resultado += valor;
       }
+      this.primeiro_elemento = this.resultado;
     } else {
       this.segundo_elemento = this.segundo_elemento + valor;
       this.resultado = this.resultado + valor;
@@ -81,6 +82,9 @@ export class HomePage {
     this.segundo_elemento = "";
     this.operando = "";
     this.operador_selecionado = false;
+  }
+  redefinirElemento() {
+
   }
   limpar() {
     if (this.resultado.length === 1) { //quando deletar apenas um numero, colocar 0
@@ -138,5 +142,17 @@ export class HomePage {
         this.segundo_elemento += '.';
       }
     }
+  }
+  raiz(){
+    if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0") {
+      this.resultado = Math.sqrt(parseFloat(this.primeiro_elemento)).toString();
+      this.primeiro_elemento = this.resultado;
+    }  
+  }
+  fracionar(){
+
+  }
+  negar(){
+    
   }
 }
