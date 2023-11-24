@@ -5,20 +5,37 @@
   <div id="container">
     <h1>{{resultado}}</h1>
     <ion-grid>
+
       <ion-row>
         <ion-col>
-          <ion-button (click)="redefinir()">AC</ion-button>
+          <ion-button (click)="porcentagem()">%</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="operador('/')">/</ion-button>
+          <ion-button (click)="redefinirElemento()">CE</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="operador('*')">*</ion-button>
+          <ion-button (click)="redefinir()">C</ion-button>
         </ion-col>
         <ion-col>
           <ion-button (click)="limpar()">DEL</ion-button>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="fracionar()">1/x</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="redefinirElemento()">x²</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="raiz()">√</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="operador('÷')">÷</ion-button>
+        </ion-col>
+      </ion-row>
+
       <ion-row>
         <ion-col>
           <ion-button (click)="digito('7')">7</ion-button>
@@ -30,7 +47,7 @@
           <ion-button (click)="digito('9')">9</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="operador('-')">-</ion-button>
+          <ion-button (click)="operador('×')">×</ion-button>
         </ion-col>
       </ion-row>
 
@@ -45,7 +62,7 @@
           <ion-button (click)="digito('6')">6</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="operador('+')">+</ion-button>
+          <ion-button (click)="operador('-')">-</ion-button>
         </ion-col>
       </ion-row>
 
@@ -60,22 +77,27 @@
           <ion-button (click)="digito('3')">3</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="fracao()">.</ion-button>
+          <ion-button (click)="operador('+')">+</ion-button>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <ion-button (click)="porcentagem()">%</ion-button>
+          <ion-button (click)="negar()">+/-</ion-button>
         </ion-col>
         <ion-col>
           <ion-button (click)="digito('0')">0</ion-button>
         </ion-col>
-        <ion-col size="6">
+        <ion-col>
+          <ion-button (click)="fracao()">.</ion-button>
+        </ion-col>
+        <ion-col>
           <ion-button (click)="calcular()">=</ion-button>
         </ion-col>
       </ion-row>
+
     </ion-grid>
   </div>
 
 </ion-content>
+
