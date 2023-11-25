@@ -54,9 +54,9 @@ export class HomePage {
       this.resultado = (parseFloat(this.primeiro_elemento) + parseFloat(this.segundo_elemento)).toString();
     } else if (this.operando == "-") {
       this.resultado = (parseFloat(this.primeiro_elemento) - parseFloat(this.segundo_elemento)).toString();
-    } else if (this.operando == "/") {
+    } else if (this.operando == "÷") {
       this.resultado = (parseFloat(this.primeiro_elemento) / parseFloat(this.segundo_elemento)).toString();
-    } else if (this.operando == "*") {
+    } else if (this.operando == "×") {
       this.resultado = (parseFloat(this.primeiro_elemento) * parseFloat(this.segundo_elemento)).toString();
     }
     if (parseFloat(this.resultado) % 1 !== 0) {
