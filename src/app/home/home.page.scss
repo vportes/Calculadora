@@ -5,12 +5,26 @@
   right: 0;
   top: 25%;
   transform: translateY(-50%);
+  background-color: #EEEEEE;
+}
+ion-content {
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 ion-button {
   width: 100%;
   height: 100%;
   margin: 0;
   padding:0;
+  transition: color 0.3s, text-decoration 0.3s;
+  --shape: round;
+}
+ion-col {
+  height:60px;
+  width: 60px;
 }
 
 #container strong {
@@ -31,7 +45,10 @@ ion-button {
 
 h1 {
   text-align: right;
-  padding-right: 9%;
+  padding-right: 10%;
+  padding-top: 20%;
+  padding-bottom: 10%;
+  background-color: #E2E2E2;
 }
 
 @media screen and (min-width: 768px) {
