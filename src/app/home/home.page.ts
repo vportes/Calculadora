@@ -162,8 +162,14 @@ quadrado(){
       this.resultado = this.resultado.substring(0, this.indice_operador) + this.operando + this.segundo_elemento;
     }
   } 
-  fracionar(){
-
+    fracionar(){
+    if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"){
+      this.resultado = (1 / (parseFloat(this.primeiro_elemento))).toString();
+      this.primeiro_elemento = this.resultado;
+    } else if (this.operador_selecionado && this.segundo_elemento !== ""){
+      this.segundo_elemento = (1 / (parseFloat(this.segundo_elemento))).toString();
+      this.resultado = this.primeiro_elemento.substring(0, this.indice_operador) + this.operando + this.segundo_elemento;
+    }
   }
   negar(){
     if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"  && !this.resultado.includes('-')){
