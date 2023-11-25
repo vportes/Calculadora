@@ -179,7 +179,7 @@ export class HomePage {
     else if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"  && this.resultado.includes('-')){
       this.resultado = this.resultado.replace("-","");
     }
-    else if (this.operador_selecionado && this.segundo_elemento !== "" && !this.resultado.includes('-')){
+    else if (this.operador_selecionado && this.segundo_elemento !== "" && !this.segundo_elemento.includes('-')){
       this.resultado = this.resultado.substring(0, this.indice_operador) + this.operando + "-" + this.segundo_elemento;
       this.segundo_elemento = "-" + this.segundo_elemento;
     }
