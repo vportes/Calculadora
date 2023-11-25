@@ -153,9 +153,15 @@ export class HomePage {
       this.resultado = this.resultado.substring(0, this.indice_operador) + this.operando + this.segundo_elemento;
     } 
   }
-  quadrado(){
-
-  }  
+quadrado(){
+    if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"){
+      this.resultado = (parseFloat(this.primeiro_elemento) * parseFloat(this.primeiro_elemento)).toString();
+      this.primeiro_elemento = this.resultado;
+    } else if (this.operador_selecionado && this.segundo_elemento !== ""){
+      this.segundo_elemento = (parseFloat(this.segundo_elemento) * parseFloat(this.segundo_elemento)).toString();
+      this.resultado = this.resultado.substring(0, this.indice_operador) + this.operando + this.segundo_elemento;
+    }
+  } 
   fracionar(){
 
   }
