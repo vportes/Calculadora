@@ -18,8 +18,14 @@ export class HomePage {
   constructor() {
   }
 
-  digito(valor: string) {
+  checar(){
+    if (this.resultado === "Infinity" || this.resultado === "NaN"){
+      this.redefinir();
+    }
+  }
 
+  digito(valor: string) {
+    this.checar();
     if (!this.operador_selecionado) {
       if (this.resultado == "0") {
         this.resultado = valor;
@@ -36,6 +42,7 @@ export class HomePage {
   }
 
   operador(operador_calculadora: string) {
+    this.checar();
     if (!this.operador_selecionado) {
       this.primeiro_elemento = this.resultado;
       this.resultado = this.resultado + operador_calculadora;
@@ -84,9 +91,17 @@ export class HomePage {
     this.operador_selecionado = false;
   }
   redefinirElemento() {
-
+    this.checar();
+    if (this.operador_selecionado) {
+      this.segundo_elemento = "";
+      this.resultado = this.primeiro_elemento + this.operando;
+    } else {
+      this.resultado = "0";
+      this.primeiro_elemento = "";
+    }
   }
   limpar() {
+    this.checar();
     if (this.resultado.length === 1) { //quando deletar apenas um numero, colocar 0
       this.resultado = "0";
       if (this.operador_selecionado) { //resetar operador e segundo elemento caso operador exista
@@ -116,6 +131,7 @@ export class HomePage {
     }
   }
   porcentagem() {
+    this.checar();
     //checa se operador nao esta selecionado, primeiro elemento nao esta vazio e resultado nao e zero
     if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0") {
       //se sim, calcula porcentagem do primeiro elemento
@@ -129,6 +145,7 @@ export class HomePage {
     }
   }
   fracao() {
+    this.checar();
     if (!this.operador_selecionado) {
       //se operador nao esta selecionado, checar se primeiro elemento tem ponto decimal, se nao, adicionar ponto decimal
       if (!this.primeiro_elemento.includes('.')) {
@@ -144,16 +161,18 @@ export class HomePage {
     }
   }
   raiz(){
+    this.checar();
     if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0") {
       this.resultado = Math.sqrt(parseFloat(this.primeiro_elemento)).toString();
       this.primeiro_elemento = this.resultado;
-    } 
+    }
     else if (this.operador_selecionado && this.segundo_elemento !== ""){
       this.segundo_elemento = Math.sqrt(parseFloat(this.segundo_elemento)).toString();
       this.resultado = this.resultado.substring(0, this.indice_operador) + this.operando + this.segundo_elemento;
-    } 
+    }
   }
   quadrado(){
+    this.checar();
     if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"){
       this.resultado = (parseFloat(this.primeiro_elemento) * parseFloat(this.primeiro_elemento)).toString();
       this.primeiro_elemento = this.resultado;
@@ -161,8 +180,9 @@ export class HomePage {
       this.segundo_elemento = (parseFloat(this.segundo_elemento) * parseFloat(this.segundo_elemento)).toString();
       this.resultado = this.resultado.substring(0, this.indice_operador) + this.operando + this.segundo_elemento;
     }
-  } 
+  }
   fracionar(){
+    this.checar();
     if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"){
       this.resultado = (1 / (parseFloat(this.primeiro_elemento))).toString();
       this.primeiro_elemento = this.resultado;
@@ -172,6 +192,7 @@ export class HomePage {
     }
   }
   negar(){
+    this.checar();
     if (!this.operador_selecionado && this.primeiro_elemento !== "" && this.resultado !== "0"  && !this.resultado.includes('-')){
       this.resultado = "-" + this.resultado;
       this.primeiro_elemento = this.resultado;
